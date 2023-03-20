@@ -11,6 +11,7 @@ spec:
     metadata:
       labels:
         app: position-simulator
+        version: latest
     spec:
       containers:
       - name: position-simulator
@@ -20,6 +21,7 @@ spec:
           value: production-microservice
         command: ["java","-Xmx50m","-jar","webapp.jar"]
         imagePullPolicy: Always
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -34,6 +36,7 @@ spec:
     metadata:
       labels:
         app: position-tracker
+        version: latest
     spec:
       containers:
       - name: position-tracker
@@ -43,6 +46,7 @@ spec:
           value: production-microservice
         command: ["java","-Xmx50m","-jar","webapp.jar"]
         imagePullPolicy: Always
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -67,6 +71,7 @@ spec:
           value: production-microservice
         command: ["java","-Xmx50m","-jar","webapp.jar"]
         imagePullPolicy: Always
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -81,6 +86,7 @@ spec:
     metadata:
       labels:
         app: webapp
+        version: latest
     spec:
       containers:
       - name: webapp
@@ -89,6 +95,7 @@ spec:
         - name: SPRING_PROFILES_ACTIVE
           value: production-microservice
         imagePullPolicy: Always
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -103,6 +110,7 @@ spec:
     metadata:
       labels:
         app: vehicle-telemetry
+        version: latest
     spec:
       containers:
       - name: vehicle-telemtry
@@ -111,6 +119,7 @@ spec:
         - name: SPRING_PROFILES_ACTIVE
           value: production-microservice
         imagePullPolicy: Always
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -125,6 +134,7 @@ spec:
     metadata:
       labels:
         app: staff-service
+        version: latest
     spec:
       containers:
       - name: staff-service
@@ -147,6 +157,7 @@ spec:
     metadata:
       labels:
         app: photo-service
+        version: latest
     spec:
       containers:
       - name: photo-service
@@ -155,6 +166,7 @@ spec:
         - name: SPRING_PROFILES_ACTIVE
           value: production-microservice
         imagePullPolicy: Always
+
 ---
 apiVersion: v1
 kind: Service
